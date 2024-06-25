@@ -1,10 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from 'react';
+import { createRoot } from 'react-dom/client'; // Correct import for createRoot
+import { ChakraProvider } from '@chakra-ui/react';
+import { Global } from '@emotion/react';
+import App from './App';
+import theme from './components/theme'; // Import the custom theme
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement); // Use createRoot from react-dom/client
+
+root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <ChakraProvider theme={theme}>
+      <App />
+    </ChakraProvider>
+  </React.StrictMode>
+);
+

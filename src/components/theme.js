@@ -9,7 +9,7 @@ const theme = extendTheme({
         margin: 0,
         padding: 0,
         boxSizing: 'border-box',
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         fontFamily: 'Manrope, system-ui, sans-serif', // Use the Manrope font
       },
       body: {

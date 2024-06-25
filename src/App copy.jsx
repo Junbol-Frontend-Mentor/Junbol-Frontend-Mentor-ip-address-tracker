@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import arrow from './assets/images/icon-arrow.svg';
 import topImageMobile from './assets/images/pattern-bg-mobile.png';
-import topImageDesktop from './assets/images/pattern-bg-desktop.png'; // ✅ Import desktop image
 import './App.css';
 import Footer from './components/Footer';
-import { Box, Flex, Text, Button, useBreakpointValue, Heading, Textarea } from '@chakra-ui/react';
+import { Box, Flex, Text, Button, useBreakpointValue, Heading, Input } from '@chakra-ui/react';
+// import L from 'leaflet'; // Import Leaflet
 
 function App() {
   // State to store the IP address input by the user
@@ -18,12 +18,8 @@ function App() {
   // State to store the initialized Leaflet map
   const [map, setMap] = useState(null);
 
-  // Hook to provide responsive values for the width based on the viewport size. base: 0px and up (typically for mobile devices)  md: 48em (768px) and up (medium devices like tablets) but also is prepared for desktop or larger monitors.
-  const width = useBreakpointValue({ base: '80%', md: '800px' }); // ✅ Updated width for the input
-  const boxHeight = useBreakpointValue({ base: '25rem', md: '15rem' }); // ✅ Adjust height based on breakpoint
-  const flexDirection = useBreakpointValue({ base: 'column', md: 'row' }); // ✅ Change direction based on breakpoint
-  const flexHeight = useBreakpointValue({ base: '25rem', md: '6rem' }); // ✅ Adjust Flex height based on breakpoint
-  const backgroundImage = useBreakpointValue({ base: `url(${topImageMobile})`, md: `url(${topImageDesktop})` }); // ✅ Change background image based on breakpoint
+  // Hook to provide responsive values for the width based on the viewport size
+  const width = useBreakpointValue({ base: '80%', md: '800px' });
 
   // Function to fetch data from the geo.ipify API
   const fetchData = async (ip) => {
@@ -72,12 +68,12 @@ function App() {
     <Flex direction="column" align="center" minH="100vh" bg="black" py="0rem" zIndex="0">
       <Box
         width="100%"
-        height={boxHeight} // ✅ Use responsive height
+        height="25rem"
         textAlign="center"
         textColor="hsl(150, 100%, 66%)"
         fontSize="2rem"
         fontWeight={800}
-        backgroundImage={backgroundImage} // ✅ Use responsive background image
+        backgroundImage={`url(${topImageMobile})`}
         backgroundSize="cover"
       ></Box>
       <Box
@@ -90,7 +86,7 @@ function App() {
         fontWeight={800}
         id="map"
         zIndex="1"
-        bg="white"
+        bg="green"
       >
         {/* Map will be rendered here */}
       </Box>
@@ -99,11 +95,11 @@ function App() {
           IP Address Tracker
         </Heading>
         <Flex
-          width="23rem"
-          height="4rem"
+          width="100%"
+          height="3rem"
           justifyContent="space-between"
           alignItems="center"
-          textAlign="left"
+          textAlign="center"
           textColor="red"
           mb="2rem"
           fontSize="2rem"
@@ -111,15 +107,13 @@ function App() {
           borderRadius="10px"
           bg="white"
         >
-          <Textarea
-            width="100%"
-            height="100%"
-            rows={2} // 🚩Set the number of rows to control the height
-            resize="none" //🚩 Prevents resizing to ensure height is respected
-            placeholder="Enter any IP address or domain, or click the button to track your own IP"
+          <Input
+            height="3rem"
+            placeholder="Search for any IP address or domain"
             value={ipAddress}
             onChange={(e) => setIpAddress(e.target.value)}
             border="none"
+            flex="1"
             bg="white"
           />
           <Button
@@ -137,17 +131,7 @@ function App() {
             <img src={arrow} alt="search icon" />
           </Button>
         </Flex>
-        <Flex
-          width="100%"
-          height={flexHeight}
-          direction={flexDirection}
-          padding="2rem"
-          justifyContent="space-between"
-          borderRadius="10px"
-          bg="white"
-        >
-          {' '}
-          {/* ✅ Use responsive height and direction */}
+        <Flex width="100%" height="25rem" direction="column" padding="2rem" justifyContent="space-between" borderRadius="10px" bg="white">
           <Flex direction="column">
             <Text mb="0.5rem" fontWeight="700" fontSize="1rem" color="grey">
               IP ADDRESS
