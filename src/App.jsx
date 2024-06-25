@@ -69,7 +69,7 @@ function App() {
   };
 
   return (
-    <Flex width="100vw" minH="100vh" direction="column" align="center" bg="black" py="0rem" zIndex="0" bg="blue">
+    <Flex width="100vw" minH="100vh" direction="column" align="center" bg="black" py="0rem" zIndex="0">
       <Box
         minW="100%"
         height={boxHeight} // ✅ Use responsive height
