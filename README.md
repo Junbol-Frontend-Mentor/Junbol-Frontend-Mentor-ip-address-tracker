@@ -42,9 +42,9 @@ This is a solution to the [IP address tracker challenge on Frontend Mentor](http
 
 ### What I learned
 
-- Working with the Grid was a challenge. But gradually I am making progress. A good working grid is a combination of grid and flexbox settings.
+- Working with Chakra to add media queries
 
-- You need to grid area you containers not the items inside your containers.
+- Prepare the React app for deployment: package.json and vite.config.js
 
 ```
 

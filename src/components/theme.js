@@ -5,11 +5,13 @@ const theme = extendTheme({
   styles: {
     global: {
       'html, body, #root': {
+
+        width: '100%',
         height: '100%',
         margin: 0,
         padding: 0,
         boxSizing: 'border-box',
-        backgroundColor: 'white',
+        backgroundColor: 'green',
         fontFamily: 'Manrope, system-ui, sans-serif', // Use the Manrope font
       },
       body: {
@@ -24,6 +26,3 @@ const theme = extendTheme({
 });
 
 export default theme;
-
-
-
